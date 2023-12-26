@@ -1,0 +1,6 @@
+    body{
+        background-image: url(../recursos/ventas1.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-attachment:fixed;
+    }

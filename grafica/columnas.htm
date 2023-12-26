@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Highcharts Example</title>
+
+		<style type="text/css">
+#container {
+	min-width: 320px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+		</style>
+	</head>
+	<body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="highcharts.js"></script>
+<script src="highcharts-more.js"></script>
+<script src="exporting.js"></script>
+
+<div id="container"></div>
+<button id="plain">Plano</button>
+<button id="inverted">Invertir</button>
+<button id="polar">Polar</button>
+
+
+		<script type="text/javascript">
+
+var chart = Highcharts.chart('container', {
+
+    title: {
+        text: 'Columnas'
+    },
+
+    subtitle: {
+        text: 'Plano'
+    },
+
+    xAxis: {
+        categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    },
+
+    series: [{
+        type: 'column',
+        colorByPoint: true,
+        data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+        showInLegend: false
+    }]
+
+});
+
+
+$('#plain').click(function () {
+    chart.update({
+        chart: {
+            inverted: false,
+            polar: false
+        },
+        subtitle: {
+            text: 'Plano'
+        }
+    });
+});
+
+$('#inverted').click(function () {
+    chart.update({
+        chart: {
+            inverted: true,
+            polar: false
+        },
+        subtitle: {
+            text: 'Invertir'
+        }
+    });
+});
+
+$('#polar').click(function () {
+    chart.update({
+        chart: {
+            inverted: false,
+            polar: true
+        },
+        subtitle: {
+            text: 'Polar'
+        }
+    });
+});
+
+		</script>
+	</body>
+</html>
